@@ -8,6 +8,15 @@ A FastAPI-based project to generate mathematical series (Fibonacci, arithmetic, 
 - Generate arithmetic series as CSV (using query parameters)
 - Modular code structure for easy extension
 
+## Important Limit for Fibonacci
+
+**By default, the API allows generating Fibonacci numbers up to the 100,000th term.**
+This is controlled by the `MAX_DIGITS` setting in `api.py` and `sys.set_int_max_str_digits(100000)`.
+
+- This limit exists to prevent performance issues and excessive memory usage when handling very large numbers.
+- If you need to increase this limit, you can change the `MAX_DIGITS` value in `api.py` and the argument to `sys.set_int_max_str_digits`.
+- ⚠️ **Be careful!** Higher limits may cause your computer/server to run out of memory or become slow/crash.
+
 ## Installation
 
 Clone the repository and set up your Python virtual environment:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import List
+import numpy as np
 
 
 class Series:
@@ -15,6 +16,15 @@ class FibonacciSeries(Series):
             result.append(a)
             a, b = b, a + b
         return result
+
+    # Matrix multiplication algorithm for Fibonacci numbers
+    def get(self) -> int:
+        if self.n == 0:
+            return 0
+        # T Matrix
+        T: np.ndarrray = np.array([[1, 1], [1, 0]], dtype=object)  # Allow big ints
+        result: int = np.linalg.matrix_power(T, self.n - 1)
+        return result[0][0]
 
 
 class ArithmeticSeries(Series):
